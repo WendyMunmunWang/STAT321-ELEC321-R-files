@@ -1,2 +1,18 @@
 #===============Problem 8 ========================================
-dice <- sample(c(0,1), size=1, replace=TRUE, prob=c(0.5,0.5)) #flip the coin
+f <- function(n) {
+  if (n == 0){
+    1
+  }
+  else if (n == 1){
+    2
+  }
+  else {
+    sum <- 0
+    while (n >= 0){
+      sum <- sum + f(n)
+      n <- n - 1
+    }
+    sum
+  }
+}
+f(20)
