@@ -35,7 +35,7 @@ gamble <- function(week_num){
       if (win_or_not == 0){
         savings <- savings - 200
         if (savings < 0 ){ 
-          result <- data.frame(games_vec, savings_vec)
+          result <- data.frame(weeks_vec, games_vec, savings_vec)
           print("this person has no savings") 
         }
       }
@@ -44,8 +44,8 @@ gamble <- function(week_num){
       }
       #update savings for each game
       savings_vec <- c(savings_vec, savings)
-      games_vec <- c(games_vec, game_restrict_num - game_num)
-      weeks_vec <- c(weeks_vec, i)
+      games_vec <- c(games_vec, game_restrict_num - game_num + 1)
+      weeks_vec <- c(weeks_vec, i+1)
       game_num <- game_num - 1
     }
     i <- i + 1
