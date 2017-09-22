@@ -24,7 +24,7 @@ gamble <- function(week_num){
   while (i < week_num){
     game_num <- game_restrict_num 
     if (is.integer(i/4)){  
-      savings <- savings + 5000 
+      savings <- savings + salary 
       games_vec <- c(games_vec, 0) #no game, just getting salary update
       savings_vec <- c(savings_vec, savings) 
     }
@@ -35,8 +35,9 @@ gamble <- function(week_num){
       if (win_or_not == 0){
         savings <- savings - 200
         if (savings < 0 ){ 
-          result <- data.frame(weeks_vec, games_vec, savings_vec)
+          #result <- data.frame(weeks_vec, games_vec, savings_vec)
           print("this person has no savings") 
+          break
         }
       }
       else if (win_or_not == 1){
@@ -48,6 +49,7 @@ gamble <- function(week_num){
       weeks_vec <- c(weeks_vec, i+1)
       game_num <- game_num - 1
     }
+    if (savings < 0){ break } 
     i <- i + 1
   }
   result <- data.frame(weeks_vec, games_vec, savings_vec)
