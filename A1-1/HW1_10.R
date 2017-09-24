@@ -53,8 +53,10 @@ gamble <- function(week_num){
     i <- i + 1
   }
   result <- data.frame(weeks_vec, games_vec, savings_vec)
+  plot(savings_vec)
   result
 }
+
 
   
 

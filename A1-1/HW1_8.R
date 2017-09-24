@@ -9,7 +9,7 @@ f <- function(n) {
 }
 
 #probability function for successive heads never appear
-#@param {integer} n [the nu]
+#@param {integer} n 
 p_n <- function(n){
   f(n) / 2^n
 }
@@ -23,5 +23,6 @@ while (n <= 25){
   probability <- c(probability, p_n(n))
   n <- n + 1
 }
+plot(toss_num, probability)
 result <- data.frame(toss_num, probability)
 result
