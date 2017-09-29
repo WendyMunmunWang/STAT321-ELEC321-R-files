@@ -1,4 +1,6 @@
 #===============Problem 7=====================================
+library(ggplot2)
+library(reshape2)
 p <- 0
 twoEn_vec <- c()
 fourEn_vec <- c()
@@ -11,7 +13,6 @@ while (p < 1){
   p_vec <- c(p_vec, p)
   p <- p + 0.01
 }
+df = melt(data.frame(A=twoEn_vec, B=fourEn_vec, p=p_vec), variable.name="metric")
+ggplot(df, aes(p, value, fill=metric)) + geom_bar()
 
-data <- structure(twoEn_vec, fourEn_vec, class = "data.frame")
-colours <- c("blue", "grey")
-barplot(as.matrix(data), main="4-engine plane vs 2-engine plane", beside = TRUE, col = colours)
