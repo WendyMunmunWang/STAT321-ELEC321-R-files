@@ -13,8 +13,14 @@ while (iteration < simulation_size){
   index <- 1 #in R, vector index is 1 based
   freq <- 0
   while (index <= tree_size){
-    if (B[index] == 1 || A[index] == 1){
+    if (B[index] == 1 && A[index] == 1){
       freq <- freq + 1
+    }
+    else if (B[index] != 1 && A[index] == 1){
+      freq <- freq + 0.8
+    }
+    else if (A[index] != 1 && B[index] == 1){
+      freq <- freq + 0.9
     }
     index <- index + 1
   }
@@ -22,6 +28,8 @@ while (iteration < simulation_size){
   prob_vec <- c(prob_vec, prob)
   iteration <- iteration + 1
 }
+prob_table <- as.data.frame(table(prob_vec))
+barplot(prob_table$Freq, col = "darkgreen", names.arg = prob_table$prob_vec, xlab = "Probability", ylab = "Freqencies", main = "Q3.1 Simulation")
 
 
 #Problem 3.2 Validation 
@@ -62,8 +70,14 @@ while (iteration < simulation_size) {
   index <- 1 #in R, vector index is 1 based
   freq <- 0
   while (index <= tree_size){
-    if (B[index] == 1 && A[index] == 1){
+    if (B_locate[index] == 1 && A_locate[index] == 1){
       freq <- freq + 1
+    }
+    else if (A_locate[index] == 1 && B_locate[index] != 1){
+      freq <- freq + 0.7
+    }
+    else if (B_locate[index] == 1 && A_locate[index] != 1){
+      freq <- freq + 0.4
     }
     index <- index + 1
   }

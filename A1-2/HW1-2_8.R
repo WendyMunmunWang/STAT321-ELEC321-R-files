@@ -39,17 +39,3 @@ while (iteration < stimulation_size){
 }
 as.data.frame(table(result))
 barplot(table(result), col="darkgreen", main = "Frequencies among 5 Cells", xlab = "Cells", ylab = "Frequencies")
-
-#===============Problem 8(d)=====================================
-iteration <- 0
-stimulation_size <- 1000
-result <- c()
-level <- 101
-curr_level <- 1 #start with the first level
-freq_cell <- c(101-1) #accumulate the frequencies for all cells in a vector and there are 100 cells
-while (iteration < stimulation_size){
-  
-  iteration <- iteration + 1
-}
-as.data.frame(table(freq_cell))
-barplot(table(freq_cell), col="darkgreen", main = "Frequencies among 5 Cells", xlab = "Cells", ylab = "Frequencies")
